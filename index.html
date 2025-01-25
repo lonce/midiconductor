@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDI Player</title>
+    <link rel="stylesheet" href="www/css/midistyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MIDI Player</h1>
+        
+        <div class="file-input-container">
+            <label class="file-input-label">
+                Choose MIDI File
+                <input type="file" id="midiFileInput" accept=".mid,.midi">
+            </label>
+            <div id="selectedFile">No file selected</div>
+        </div>
+
+        <div class="device-selectors">
+            <div class="select-container">
+                <label for="midiInput">MIDI Input:</label>
+                <select id="midiInput"></select>
+            </div>
+            <div class="select-container">
+                <label for="midiOutput">MIDI Output:</label>
+                <select id="midiOutput"></select>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="playButton" disabled>Play</button>
+            <button id="stopButton" disabled>Stop</button>
+        </div>
+
+        <div class="tempo-container">
+            <div class="tempo-mode">
+                <label><input type="radio" name="tempoMode" value="relative" checked> Relative to MIDI tempo</label>
+                <label><input type="radio" name="tempoMode" value="absolute"> Absolute BPM</label>
+            </div>
+
+            <label for="tempoSlider">Tempo Control</label>
+            <div class="slider-container">
+                <span>30</span>
+                <input type="range" id="tempoSlider" min="30" max="240" value="120">
+                <span>240</span>
+            </div>
+            <div id="bpmDisplay">120 BPM</div>
+        </div>
+
+        <div class="tracks-container">
+            <h2>Track Controls</h2>
+            <div id="trackControls" class="track-list">
+                <!-- Track controls will be added here dynamically -->
+            </div>
+        </div>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script type="module" src="www/main.js"></script>
+</body>
+</html>
